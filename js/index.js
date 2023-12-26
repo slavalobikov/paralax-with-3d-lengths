@@ -1,5 +1,3 @@
-let desktop = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i)
-let orientationSupport = !!window.DeviceOrientationEvent && !desktop
 document.addEventListener('mousemove', (e) => {
     document.documentElement.style.setProperty('--moveX', `${(e.clientX - window.innerWidth / 2) * -0.005}deg`)
     document.documentElement.style.setProperty('--moveY', `${(e.clientY - window.innerHeight /2) * -0.01}deg`)
@@ -14,8 +12,7 @@ function handleDeviceOrientation(event) {
 
     moveX = Math.max(Math.min(moveX, 3.5), -3.5);
     moveY = Math.max(Math.min(moveY, 3.5), -3.5);
-    if (orientationSupport) {
+
         document.documentElement.style.setProperty('--moveX', moveX + 'deg');
         document.documentElement.style.setProperty('--moveY', moveY + 'deg');
-    }
 }
